@@ -1,0 +1,1 @@
+# alt-ime-ahk-en2jp
