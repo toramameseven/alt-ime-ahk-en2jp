@@ -1,6 +1,7 @@
 # alt-ime-ahk-en2jp
 
-とても便利な[alt-ime-ahk](https://github.com/karakaram/alt-ime-ahk) を少し改変してあります。
+* とても便利な[alt-ime-ahk](https://github.com/karakaram/alt-ime-ahk) を少し改変してあります。
+* [日本語から英語](https://qiita.com/uhyot/items/e3039e9e730e89939b58) を利用させてもらっています。
 
 # 機能
 
@@ -21,5 +22,6 @@
 
 # 謝辞
 
-karakaramさん、とっても便利なツールありがとうございます。
+* karakaramさん、とっても便利なツールありがとうございます。
+* @uhyotさん、[日本語から英語](https://qiita.com/uhyot/items/e3039e9e730e89939b58)ありがとうございます。
 
