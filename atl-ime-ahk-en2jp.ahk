@@ -16,6 +16,10 @@
 ; Author:     karakaram   http://www.karakaram.com/alt-ime-on-off
 ; https://github.com/karakaram/alt-ime-ahk
 
+; 日本語から英語
+; Author: @uhyot さん
+; https://qiita.com/uhyot/items/e3039e9e730e89939b58
+
 
 ; Razer Synapseなど、キーカスタマイズ系のツールを併用しているときのエラー対策.
 ; err #MaxHotkeysPerInterval 350
