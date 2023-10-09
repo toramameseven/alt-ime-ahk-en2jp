@@ -24,4 +24,5 @@
 
 * karakaramさん、とっても便利なツールありがとうございます。
 * @uhyotさん、[日本語から英語](https://qiita.com/uhyot/items/e3039e9e730e89939b58)ありがとうございます。
+* [上記の元ネタ](https://gnarl.hatenadiary.org/entry/20090429/1240996300) さんありがとうございます。
 
