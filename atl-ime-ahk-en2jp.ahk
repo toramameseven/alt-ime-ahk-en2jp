@@ -3,6 +3,7 @@
 ; 日本語キーボードは、キートップを英語にする.
 ; 英語キーボードは、そのまま使用できる.
 ; calslock は F18 に変更済み
+; 変換キーではvk1Csc079をsc079に、無変換キーではvk1Dsc07Bをsc07Bに書き換えることによってエラーを回避できました。
 
 ; 左右 Alt キーの空打ちで IME の OFF/ON を切り替える.
 ;
@@ -121,16 +122,17 @@
 *~End::
 *~PgUp::
 *~PgDn::
-    {
-        Return
-        }
+*~F18::
+{
+Return
+}
 
 
 #UseHook
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ; 1段目.
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
- VKF4::Send "{``}"     ;         半角/全角     -> `
+ VKF4::Send "{``}"    ;         半角/全角     -> `
  +VKF4::Send "{~}"    ; Shift + 半角/全角     -> ~
  +2::Send "{@}"       ; Shift + 2         ["] -> @
  +6::Send "{^}"       ; Shift + 6         [&] -> ^
@@ -140,7 +142,7 @@
  +0::Send "{)}"       ; Shift + 0         [ ] -> )
  +-::Send "{_}"       ; Shift + -         [=] -> _
  ^::Send "{=}"        ;                   [^] -> =
- +^::Send "{+}"      ; Shift + ^         [~] -> +
+ +^::Send "{+}"       ; Shift + ^         [~] -> +
 
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ; 2段目.
@@ -156,52 +158,47 @@
  ;;                  ; ;                 [;] -> ;
  +;::Send "{:}"      ; Shift + ;         [+] -> :
  :::Send "{'}"       ; :                 [:] -> '
- *::Send "{`"}"       ; Shift + :          [*] -> "
- ]::send "{\}"       ; ]                  []] -> \
+ *::Send "{`"}"      ; Shift + :         [*] -> "
+ ]::send "{\}"       ; ]                 []] -> \
  +]::send "{|}"      ; Shift + ]         [}] -> |
 
 ; 上部メニューがアクティブになるのを抑制.
 *~LAlt::Send "{Blind}{vk07}"
 *~RAlt::Send "{Blind}{vk07}"
 
-; 左 Alt 空打ちで IME を OFF.
+;vk1Csc079をsc079に、無変換キーではvk1Dsc07Bをsc07B
 LAlt up::
-    {if (A_PriorHotkey == "*~LAlt")
-        send "{F16}"
-    
-    Return
-}
-; 右 Alt 空打ちで IME を ON.
-RAlt up::
-    {if (A_PriorHotkey == "*~RAlt")
-            send "{F15}"
-        Return
-        }
-
-;;
-!Space::Send "{F15}"
-
-;; forked from https://github.com/usi3/emacs.ahk
-*~F18::
 {
-     Return    
+if (A_PriorHotkey == "*~LAlt")
+send "{sc07B}"
+Return
 }
+; 右 Alt 空打ちで IME を ON. F15
+RAlt up::
+{
+if (A_PriorHotkey == "*~RAlt")
+send "{sc079}"
+Return
+}
+
 
 ;; ここからは おまけ
 
-F18 & f::send  "{Blind}{Left}"
-F18 & p::send  " {Blind}{Up}"
-F18 & n::send  "{Blind}{Down}"
-F18 & b::send  "{Blind}{Right}"
+F18 & l::send  "{Blind}{Left}"
+F18 & u::send  "{Blind}{Up}"
+F18 & d::send  "{Blind}{Down}"
+F18 & r::send  "{Blind}{Right}"
 F18 & m::send  "{Blind}{Enter}"
 F18 & h::send  "{Blind}{bs}"
-F18 & d::send  "{Blind}{Delete}"
 F18 & e::send  "{Blind}{End}"
 F18 & t::send  "{Blind}{Home}"
+F18 & v::send  "^v"
 F18 & c::send  "^c"
 F18 & x::send  "^x"
 F18 & z::send  "^z"
-F18 & v::send  "^v"
 F18 & s::send  "^s"
 F18 & a::send  "^a"
-;;;    
+F18 & f::send  "^f"
+F18 & i::send "{sc07B}"
+F18 & o::send "{sc079}"
+ 
